@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            position: relative;
+            z-index: 5;
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            border: 0;
+            color: #fff;
+            border-radius: 300px;
+            cursor: pointer;
+            box-shadow: 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000;
+            transition: all 300ms ease;
+        }
+
+        button.active {
+            width: 250px;
+            height: 250px;
+        }
+
+        button span {
+            display: block;
+            font-size: 40px;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            border-radius: 100px;
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+            box-shadow: 0px 0px 50px #000, 0px 0px 50px #000, 0px 0px 50px #000;
+            transition: all 300ms ease;
+        }
+
+        .container.active .circle-1 {
+            top: 0;
+            left: 0;
+        }
+
+        .container.active .circle-2 {
+            top: 0;
+            left: calc(100% - 100px);
+        }
+
+        .container.active .circle-3 {
+            top: calc(100% - 50px);
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <button type="button" class=""><span>F</span><span>H</span></button>
+
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+</div>
+<script>
+    let container = document.querySelector(".container");
+    let button = document.querySelector("button");
+
+    button.addEventListener("click", () => {
+        if(button.classList.contains("active")) {
+            container.classList.remove("active")
+            button.classList.remove("active")
+        } else {
+            container.classList.add("active")
+            button.classList.add("active")
+        }
+    })
+</script>
+</body>
+</html>
